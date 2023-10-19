@@ -1,0 +1,16 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyTypeCheckerInspection" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="pandas" />
+          <option value="mysite.mysite.settings.sysys" />
+          <option value="polls.models.Question.*" />
+          <option value="polls.views.index.as_view" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
