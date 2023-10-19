@@ -4,7 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3c144ae-ea39-4f87-aa13-048ef5a0a44c" name="Changes" comment="the beckend code of clinc project" />
+    <list default="true" id="c3c144ae-ea39-4f87-aa13-048ef5a0a44c" name="Changes" comment="the beckend code of clinc project">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/E_Clinc_Project (2).iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clinc_API/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/machinet.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/tamplate/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/E_Clinc_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E_Clinc_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClincProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClincProject/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClincProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClincProject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinc_API/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinc_API/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/migrations/0002_alter_doctor_dct_gender_alter_gender_gnd_id_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/migrations/0003_rename_usr_gender_userssystem_gender.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/migrations/0004_alter_userssystem_is_doctor_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/migrations/0005_doctor_dct_clinic_ar_doctor_dct_clinic_en_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/migrations/0006_remove_doctor_dct_clinic_ar_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/migrations/0007_rename_dct_name_ar_ar_doctor_dct_desc_ar_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/migrations/0008_remove_doctor_dct_phone_ar_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinc_API/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinc_API/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinc_API/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinc_API/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinc_API/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env2/Lib/site-packages/hordak/forms/transactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/env2/Lib/site-packages/hordak/forms/transactions.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +48,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8e6590bf-1e0e-4c69-85ad-30c110a9366e" />
+        <option name="url" value="https://github.com/ahmedafeef/Clinc_Project.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/env2/Lib/site-packages/django/db/backends/utils.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -30,17 +74,20 @@
     <option name="height" value="980" />
   </component>
   <component name="ProjectId" id="2VPOwXAualD1fNnX3366tfgy8tS" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/NCG/E_Clinc_Project (2)",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "last_opened_file_path": "C:/Users/NCG/Portel",
+    "settings.editor.selected.configurable": "com.github.evgenys91.machinet.common.settings.AppSettingsConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -50,8 +97,75 @@
       <recent name="C:\Users\NCG\E_Clinc_Project (2)\E_Clinc_Project\env2\Lib\site-packages\jazzmin\locale\bg" />
       <recent name="C:\Users\NCG\E_Clinc_Project\Clinc_API" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\NCG\E_Clinc_Project (2)\E_Clinc_Project\static" />
+      <recent name="C:\Users\NCG\E_Clinc_Project (2)\E_Clinc_Project\Clinc_API" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main (١)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="E_Clinc_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects2022/python-turtle-race" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects2022/python-turtle-race/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (٢)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="E_Clinc_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/pythonProject4" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/pythonProject4/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (٣)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="E_Clinc_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects2022/crossing capsteon game/the game" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects2022/crossing capsteon game/the game/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="E_Clinc_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,6 +188,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main (١)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -116,20 +235,108 @@
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="the beckend code of clinc project" />
     <option name="LAST_COMMIT_MESSAGE" value="the beckend code of clinc project" />
+  </component>
+  <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
+    <option name="historyDtoById">
+      <map>
+        <entry key="198285">
+          <value>
+            <ChatHistoryModel>
+              <option name="id" value="198285" />
+              <option name="initiateTms" value="1698288115486" />
+              <option name="request" value="hi" />
+              <option name="response" value="" />
+              <option name="usedFilesPaths">
+                <list>
+                  <option value="$PROJECT_DIR$/Clinc_API/models.py" />
+                </list>
+              </option>
+            </ChatHistoryModel>
+          </value>
+        </entry>
+        <entry key="2661d4">
+          <value>
+            <ChatHistoryModel>
+              <option name="id" value="2661d4" />
+              <option name="initiateTms" value="1698287940692" />
+              <option name="response" value="" />
+              <option name="usedFilesPaths">
+                <list>
+                  <option value="$PROJECT_DIR$/Clinc_API/models.py" />
+                </list>
+              </option>
+            </ChatHistoryModel>
+          </value>
+        </entry>
+        <entry key="587137">
+          <value>
+            <ChatHistoryModel>
+              <option name="id" value="587137" />
+              <option name="initiateTms" value="1698288038971" />
+              <option name="response" value="" />
+              <option name="usedFilesPaths">
+                <list>
+                  <option value="$PROJECT_DIR$/Clinc_API/models.py" />
+                </list>
+              </option>
+            </ChatHistoryModel>
+          </value>
+        </entry>
+        <entry key="83037e">
+          <value>
+            <ChatHistoryModel>
+              <option name="id" value="83037e" />
+              <option name="initiateTms" value="1698288203767" />
+              <option name="request" value="django.db.utils.ProgrammingError: column &quot;practicing_profession_id_id&quot; of relation &quot;doctor&quot; does not exist&#10;LINE 1: ... &quot;dct_gender_id&quot;, &quot;dct_clinic_id&quot;, &quot;dct_name_ar&quot;, &quot;practicin...&#10;                                                             ^&#10;" />
+              <option name="response" value="" />
+              <option name="usedFilesPaths">
+                <list>
+                  <option value="$PROJECT_DIR$/Clinc_API/models.py" />
+                </list>
+              </option>
+            </ChatHistoryModel>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/manage.py">

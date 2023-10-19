@@ -11,11 +11,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -63,8 +65,11 @@ JAZZMIN_SETTINGS = {
 
     # Logo to use for login form in dark themes (defaults to login_logo)
     "login_logo_dark": None,
-
+    "custom_js": "tamplate/js/base.js",
     "language_chooser": True,
+    "changeform_format": "horizontal_tabs",
+    # override change forms on a per modeladmin basis
+    "changeform_format_overrides": {"Clinc_API.Patient": "single", },
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,7 +84,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ClincProject.urls'
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -160,7 +167,7 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 HORDAK_MAX_DIGITS = 20
-HORDAK_DECIMAL_PLACES = 6
+HORDAK_DECIMAL_PLACES = 4
 HORDAK_DEFAULT_CURRENCY = "YER"
 HORDAK_INTERNAL_CURRENCY = "YER"
 HORDAK_CURRENCIES = ["YER", "USD", "EUR", "SAR"]

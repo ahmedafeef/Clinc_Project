@@ -9,10 +9,10 @@ from rest_framework.views import APIView
 
 from .permissions import UpdateOwnUserProfile
 from Clinc_API.models import Gender, Clinic, Patient, Session, Document, \
-    Doctor, BookingStatus, Booking
+    Doctor, BookingStatus, Booking, InsuranceCompanies
 from Clinc_API.serializers import GenderSerializer, ClinicSerializer, PatientSerializer, \
     SessionSerializer, DocumentSerializer, DectorSerializer, \
-    BookingStatusSerializer, BookingSerializer, UsersSysSerializer
+    BookingStatusSerializer, BookingSerializer, UsersSysSerializer, InsuranceCompaniesSerializer
 
 
 class UserLoginApiView(ObtainAuthToken):
@@ -40,9 +40,6 @@ class LogoutView(APIView):
 
 
 class PatientViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer
     # permission_classes = (UpdateOwnPatientProfile,)
@@ -52,9 +49,6 @@ class PatientViewSet(viewsets.ModelViewSet):
 
 
 class UsersViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
     queryset = Patient.objects.all()
     serializer_class = UsersSysSerializer
     # permission_classes = (UpdateOwnPatientProfile,)
@@ -64,20 +58,18 @@ class UsersViewSet(viewsets.ModelViewSet):
 
 
 class SessionViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
     queryset = Session.objects.all()
     serializer_class = SessionSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsAuthenticated]
 
 
 class GenderViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
     queryset = Gender.objects.all()
     serializer_class = GenderSerializer
+    permission_classes = [permissions.AllowAny]
+class InsuranceCompaniesViewSet(viewsets.ModelViewSet):
+    queryset = InsuranceCompanies.objects.all()
+    serializer_class = InsuranceCompaniesSerializer
     permission_classes = [permissions.AllowAny]
 
 

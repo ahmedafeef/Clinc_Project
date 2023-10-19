@@ -1,6 +1,7 @@
 from rest_framework import serializers
+
 from Clinc_API.models import Gender, Clinic, Patient, \
-    Session, Document, Doctor, BookingStatus, Booking, UsersSystem
+    Session, Document, Doctor, BookingStatus, Booking, UsersSystem, InsuranceCompanies
 from . import models
 
 
@@ -8,6 +9,12 @@ class GenderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gender
         fields = ['gnd_id', 'gnd_name_en', 'gnd_name_ar']
+
+
+class InsuranceCompaniesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InsuranceCompanies
+        fields = ['insurance_number', 'company_name', 'phone_number', 'email']
 
 
 class ClinicSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,7 +29,7 @@ class PatientSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Patient
         fields = ['pnt_id', 'pnt_age', 'pnt_img_url', 'pnt_phone',
-                  'pnt_email', 'pnt_gender', 'pnt_name_en', 'pnt_name_ar']
+                  'pnt_email', 'pnt_gender', 'pnt_name_en', 'pnt_name_ar', 'pnt_insurance_num']
         # fields = ['pnt_id', 'pnt_age', 'pnt_img_url', 'pnt_phone',
         #           'pnt_email', 'pnt_pass', 'pnt_gender_id', 'pnt_status',
         #           'pnt_name_en', 'pnt_name_ar']
@@ -108,7 +115,7 @@ class DectorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Doctor
         fields = ['dct_major_id', 'dct_id', 'dct_name_en', 'dct_name_ar',
-                  'dct_img_url', 'dct_desc', 'dct_phone', 'dct_pass', 'dct_gender', 'dct_clinic']
+                  'dct_img_url', 'dct_desc', 'dct_phone', 'dct_pass', 'dct_gender', 'dct_clinic', 'practicing_profession_id']
         extra_kwargs = {
             'dct_pass': {
                 'write_only': True,

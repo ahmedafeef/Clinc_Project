@@ -1,6 +1,16 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="PyCompatibilityInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ourVersions">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="2.7" />
+            <item index="1" class="java.lang.String" itemvalue="3.11" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
     <inspection_tool class="PyTypeCheckerInspection" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
     <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredIdentifiers">
@@ -9,6 +19,8 @@
           <option value="mysite.mysite.settings.sysys" />
           <option value="polls.models.Question.*" />
           <option value="polls.views.index.as_view" />
+          <option value="Clinc_API.models.Patient.objects" />
+          <option value="django.contrib.admin.site.*" />
         </list>
       </option>
     </inspection_tool>

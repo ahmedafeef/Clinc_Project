@@ -5,12 +5,13 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+import datetime
 from typing import Any
 
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
-import datetime
+from django.utils.html import mark_safe
 
 
 class BookingStatus(models.Model):
@@ -19,7 +20,7 @@ class BookingStatus(models.Model):
     status_name_ar = models.TextField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'booking_status'
 
 
@@ -34,6 +35,19 @@ class Gender(models.Model):
 
     def __str__(self):
         return self.gnd_name_en
+
+
+class PaymentMethod(models.Model):
+    pym_id = models.BigAutoField(primary_key=True)
+    pym_name_en = models.TextField()
+    pym_name_ar = models.TextField()
+
+    class Meta:
+        managed = True
+        db_table = 'payment_method'
+
+    def __str__(self):
+        return self.pym_name_en
 
 
 class UserProfileManager(BaseUserManager):
@@ -115,6 +129,20 @@ class UserProfileManager(BaseUserManager):
                                 name_ar, name_en, major, clinic)
 
 
+class InsuranceCompanies(models.Model):
+    insurance_number = models.BigAutoField(primary_key=True)
+    company_name = models.TextField(max_length=100)
+    phone_number = models.TextField(max_length=20, unique=True)
+    email = models.EmailField()
+
+    class Meta:
+        managed = True
+        db_table = "InsuranceCompanies"
+
+    def __str__(self):
+        return self.comp_name
+
+
 class Patient(models.Model):
     pnt_id = models.BigAutoField(primary_key=True)
     pnt_age = models.IntegerField()
@@ -123,7 +151,13 @@ class Patient(models.Model):
     pnt_email = models.TextField(unique=True)
     pnt_gender = models.ForeignKey(Gender, models.DO_NOTHING)
     pnt_name_ar = models.TextField()
+    pnt_isr_doc_img = models.ImageField(upload_to='images/pnt/', blank=True, null=True)
     pnt_name_en = models.TextField()
+    has_insurance = models.BooleanField(default=False)
+    pnt_insurance_num = models.CharField(max_length=50, unique=True, blank=True, null=True)
+    pnt_insurance_co = models.ForeignKey(InsuranceCompanies, models.DO_NOTHING, blank=True, null=True)
+    pnt_issue_date = models.DateField(blank=True, null=True)
+    pnt_exp_date = models.DateField(blank=True, null=True)
 
     class Meta:
         managed = True
@@ -131,6 +165,96 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.pnt_name_en
+
+    def image_tag(self):
+        return mark_safe('<img src="/media/%s" width="150" height="150" />' % (self.pnt_isr_doc_img))
+
+    image_tag.short_description = 'Pnt isr doc img'
+
+    def image_tag_table(self):
+        return mark_safe('<a href="/media/%s" width="80" height="80">insurance_img</a>' % (self.pnt_isr_doc_img))
+
+    image_tag.short_description = 'Pnt isr doc img'
+
+
+# payment from client  ====> insert to
+
+
+class Services(models.Model):
+    action = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    discount = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    discounted_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'Services'
+
+    def __str__(self):
+        return self.action
+
+    def save(self, *args, **kwargs):
+        if self.discount:
+            self.discounted_price = self.price - (self.price * (self.discount / 100))
+        else:
+            self.discounted_price = None
+        super().save(*args, **kwargs)
+
+
+class Invoice(models.Model):
+    invoice_number = models.CharField(max_length=100)
+    rcp_cst = models.ForeignKey(Patient, models.DO_NOTHING, blank=True, null=True)
+    date = models.DateField()
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    currency = models.CharField(max_length=10, default='YER')
+
+    def __str__(self):
+        return self.invoice_number
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+
+class InvoiceItem(models.Model):
+    invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE, related_name='items')
+    srv_itm = models.ForeignKey(Services, on_delete=models.DO_NOTHING, related_name='srv_itm',
+                                blank=True, null=True)
+    quantity = models.PositiveIntegerField(default=1)
+    price = models.DecimalField(default=0, max_digits=10, decimal_places=2)
+    currency = models.CharField(max_length=10, default='YER')
+
+    def __str__(self):
+        return f'{self.srv_itm.action} - {self.invoice.invoice_number}'
+
+    def save(self, *args, **kwargs):
+        self.price = self.srv_itm.price
+        super().save(*args, **kwargs)
+        self.invoice.total_amount = sum(item.quantity * item.price for item in self.invoice.items.all())
+        self.invoice.save()
+
+    def delete(self, *args, **kwargs):
+        invoice = self.invoice
+        super().delete(*args, **kwargs)
+        invoice.total_amount = sum(item.quantity * item.price for item in invoice.items.all())
+        invoice.save()
+
+
+class Receipt(models.Model):
+    doc_serial = models.BigAutoField(primary_key=True)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    date = models.DateField()
+    description = models.CharField(max_length=100)
+    rcp_cst = models.ForeignKey(Patient, models.DO_NOTHING, blank=True, null=True)
+    rcp_as_name = models.CharField(max_length=100, blank=True, null=True)
+    payment_method = models.ForeignKey(PaymentMethod, models.DO_NOTHING, blank=True, null=True)
+    bank_name = models.CharField(max_length=100, blank=True, null=True)
+    check_number = models.CharField(max_length=20, blank=True, null=True)
+    invoice_number = models.CharField(max_length=20)
+    transaction_number = models.CharField(max_length=20, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'receipt'
 
 
 class Clinic(models.Model):
@@ -159,6 +283,21 @@ class Major(models.Model):
         return self.major_name_en
 
 
+class PracticingProfession(models.Model):
+    practice_id = models.BigAutoField(primary_key=True)
+    practice_number = models.CharField(max_length=30, blank=True, null=True)
+    practicing_name = models.CharField(max_length=100)
+    issue_date = models.DateField(blank=True, null=True)
+    exp_date = models.DateField(blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'PracticingProfession'
+
+    def __str__(self):
+        return self.practicing_name
+
+
 class Doctor(models.Model):
     dct_id = models.BigAutoField(primary_key=True)
     dct_name_en = models.TextField()
@@ -169,10 +308,14 @@ class Doctor(models.Model):
     dct_gender = models.ForeignKey(Gender, models.DO_NOTHING, blank=True, null=True)
     dct_clinic = models.ForeignKey(Clinic, models.DO_NOTHING, blank=True, null=True)
     dct_name_ar = models.TextField()
+    practicing_profession = models.ForeignKey(PracticingProfession, models.DO_NOTHING, null=True)
 
     class Meta:
         managed = True
         db_table = 'doctor'
+
+    def __str__(self):
+        return self.dct_name_en
 
 
 class Booking(models.Model):
@@ -186,7 +329,7 @@ class Booking(models.Model):
     bok_note = models.TextField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'booking'
 
 
@@ -197,7 +340,7 @@ class Document(models.Model):
     doc_url = models.TextField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'document'
 
 
@@ -252,5 +395,5 @@ class Session(models.Model):
     sin_date = models.DateTimeField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'session'
